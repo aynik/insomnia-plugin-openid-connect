@@ -292,10 +292,7 @@ module.exports.requestHooks = [
             tokens = await authenticateOrRefresh(config, tokens);
         }
 
-        debug('setting authorization header with token', tokens.access_token);
-        context.request.setHeader(
-            'Authorization',
-            `Bearer ${tokens.access_token}`
-        );
+        debug('setting authorization header with token', tokens.id_token);
+        context.request.setHeader('Authorization', `Bearer ${tokens.id_token}`);
     },
 ];
